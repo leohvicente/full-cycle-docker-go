@@ -6,4 +6,4 @@ https://hub.docker.com/repository/docker/leohvicente/go-project/general
 
 A nova imagem esta disponível no docker hub com a TAG PROD.
 
-Consegui chegar ao tamanho de 4MB.Há alguma dica para chegar em 2MB?
+Consegui chegar ao tamanho de 2.11MB.Há algo a mais que pode ser feito?
