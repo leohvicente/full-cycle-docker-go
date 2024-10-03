@@ -6,8 +6,14 @@ COPY go.mod ./
 RUN go mod download && go mod verify
 
 COPY . .
-RUN go build -v -o /usr/local/bin/app ./...
+RUN CGO_ENABLED=0 GOOS=linux go build  -v -ldflags="-s -w" -trimpath -o /usr/local/bin/app ./... 
+
+FROM scratch
+
+WORKDIR /app
+
+COPY --from=builder /usr/local/bin/app .
 
 EXPOSE 8080
 
-CMD ["app"]
+CMD ["./app"]
